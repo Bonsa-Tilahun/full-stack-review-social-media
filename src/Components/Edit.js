@@ -7,13 +7,17 @@ class Edit extends React.Component {
     super(props)
 
     this.state = {
-      //something goes here
+      userInput: props.data.content
     }
   }
 
   handleCancel = () => {}
 
-  handleChange = () => {}
+  handleChange = (e) => {
+    this.setState({
+      userInput: e.target.value
+    })
+  }
 
   render() {
     return (
@@ -22,11 +26,10 @@ class Edit extends React.Component {
           <input
             className="post-text"
             value={
-              null
-              //something goes here
+              this.state.userInput
             }
-            onChange={() => {
-              //something goes here
+            onChange={(e) => {
+              this.handleChange(e)
             }}
           />
         </div>
@@ -34,7 +37,7 @@ class Edit extends React.Component {
           <button
             className="input-container-button-small"
             onClick={() => {
-              //something goes here
+              this.props.toggleEdit()
             }}
           >
             Cancel
@@ -42,7 +45,7 @@ class Edit extends React.Component {
           <button
             className="input-container-button-small"
             onClick={() => {
-              //something goes here
+              this.props.handleEdit(this.props.data.post_id, this.state.userInput)
             }}
           >
             Save
