@@ -39,7 +39,12 @@ module.exports = {
         req.session.destroy()
         res.sendStatus(200)
     },
-    getUser: () => {
+    getUser: (req, res) => {
         //TODO Get user from session
+        if (req.session) {
+            res.status(200).send(req.session.user)
+        } else {
+            res.sendStatus(404)
+        }
     },
 }

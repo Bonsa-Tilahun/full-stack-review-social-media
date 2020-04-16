@@ -8,7 +8,7 @@ const Post = (props) => {
       <div>
         <p className="post-text">
           {
-            //something goes here
+            props.data.content
           }
         </p>
       </div>

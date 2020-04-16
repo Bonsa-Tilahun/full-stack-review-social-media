@@ -27,8 +27,8 @@ app.get('/auth/user', authCtrl.getUser)
 
 app.get('/api/posts', postCtrl.getPosts)
 app.post('/api/posts', postCtrl.addPost)
-app.put('/api/posts/:id', postCtrl.editPost)
-app.delete('/api/posts/:id', postCtrl.deletePost)
+app.put('/api/posts/:post_id', postCtrl.editPost)
+app.delete('/api/posts/:post_id', postCtrl.deletePost)
     //TODO get post put delete posts
 massive({
     connectionString: CONNECTION_STRING,
